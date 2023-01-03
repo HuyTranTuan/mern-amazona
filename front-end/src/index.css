@@ -17,3 +17,44 @@ header a{
   font-weight: bold;
   text-decoration: none;
 }
+
+footer{
+  background-color: #404040;
+  padding: 1rem;
+  color: #fff;
+}
+
+footer a{
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.products-title{
+  text-align: center;
+}
+
+.products-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product{
+  border: 1px solid #404040;
+  margin: 1rem;
+}
+
+.product img{
+  width: 100%;
+  max-width: 400px;
+}
+
+.product-info{
+  padding: 1rem 2rem;
+}
+
+.product-info-header{
+  display: flex;
+  justify-content: space-between;
+}
