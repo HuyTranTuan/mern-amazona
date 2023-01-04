@@ -3,7 +3,9 @@ import React from 'react'
 export default function FooterComponent() {
   return (
     <footer>
-        Copyright by HuyDepTrai
+        <div className='text-center'>
+          Copyright by HuyDepTrai
+        </div>
     </footer>
   )
 }

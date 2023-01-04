@@ -1,14 +1,64 @@
-import React from 'react';
-import data from "../../data";
+import React, { useState, useEffect, useReducer } from 'react';
+import "./HomePage.scss"
 import ListProductsComponent from '../../components/ListProductsComponent';
+import axios from 'axios';
+import logger from 'use-reducer-logger';
+import { Helmet } from 'react-helmet-async';
+import LoadingComponent from '../../components/LoadingComponent';
+import ErrorComponent from '../../components/ErrorComponent';
+import {getErrorMessage} from '../../ulti';
+
+const reducer = (state, action) =>{
+    switch(action.type){
+        case 'FETCH_REQUEST':
+            return {...state, loading: true};
+        case 'FETCH_SUCCESS':
+            return {...state, loading: false, products: action.payload};
+        case 'FETCH_FAIL':
+            return {...state, loading: false, error: action.payload};
+        default: 
+        return state;
+    }
+}
 
 export default function HomeComponent() {
+    const [{loading, error, products}, dispatch] = useReducer(logger(reducer), {
+        products: [],
+        loading: true,
+        error: "",
+    })
+    // const [products, setProducts] = useState([]);
+    useEffect(() => {
+        ;(async () => {
+            dispatch({ type: 'FETCH_REQUEST'});
+            try {
+                const result = await axios.get('/api/products');
+                dispatch({ type: 'FETCH_SUCCESS', payload: result.data});
+            } catch (error) {
+                dispatch({ type: 'FETCH_FAIL', payload: getErrorMessage(error) });
+                console.log(error);
+            }
+        })()
+        return () => {
+            
+        };
+    }, []);
+
     return (
-        <main>
+        <>
+            <Helmet>
+                <title>Amazon</title>
+            </Helmet>
             <h1 className='products-title'>List Products</h1>
             <div className="products-container">
-                <ListProductsComponent array={data.products}/>
+                {loading ? (
+                    <LoadingComponent/>
+                ) : error ? (
+                    <ErrorComponent variant="danger">{error}</ErrorComponent>
+                ) : (
+                    <ListProductsComponent array={products}/>
+                )}
             </div>
-        </main>
+        </>
     )
 }
