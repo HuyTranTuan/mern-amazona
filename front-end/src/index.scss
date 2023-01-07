@@ -23,6 +23,21 @@ body {
     top: -10px;
     left: -10px;
   }
+  .header-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .cart-profile-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .user-profile{
+    background-color: #dcff4f;
+    display: flex;
+    text-align: center;
+    align-items: center;
+  }
 
   .site-container{
     min-height: 100vh;

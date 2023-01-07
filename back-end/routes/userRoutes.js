@@ -20,7 +20,7 @@ userRouter.post(
                 token: generateToken(user),
             });
             return;
-        }
+        } else res.status(401).send({message: "Invalid username or password"});
        } else res.status(401).send({message: "Invalid username or password"});
     })
 )

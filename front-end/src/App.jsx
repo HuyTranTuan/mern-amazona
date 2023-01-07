@@ -11,11 +11,14 @@ import CartPage from "./pages/Cart/CartPage";
 import SignInPage from "./pages/SignIn/SignInPage";
 import SignUpPage from "./pages/SignUp/SignUpPage";
 import PolicyPage from "./pages/Policy/PolicyPage";
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
   return (
     <div className="d-flex flex-column site-container">
+      <ToastContainer position="top-right" limit={1} theme="colored" hideProgressBar={true}></ToastContainer>
       <Header/>
       <main>
         <Container className="mt-3">
