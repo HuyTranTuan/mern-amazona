@@ -3,6 +3,9 @@ import cors from 'cors';
 import data from "./data.js";
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import seedRouter from './routes/seedRoutes.js';
+import productRouter from './routes/productRoutes.js';
+import userRouter from './routes/userRoutes.js';
 
 dotenv.config();
 mongoose.connect(process.env.MONGODB_URI)
@@ -14,25 +17,20 @@ mongoose.connect(process.env.MONGODB_URI)
     });
 
 const app = express();
-
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/api/products', (req, res) => {
-    typeof data.products !== 'undefined' && data.products.length === 0
-    ? res.status(404).send({ message: 'Products not found' })
-    : res.send(data.products) ;
+app.use('/api/seed', seedRouter);
+app.use('/api/products', productRouter);
+app.use('/api/users', userRouter);
+
+app.use((err, req, res, next) => {
+    res.status(500).send({
+        message: err.message,
+    })
 });
 
-app.get('/api/product/slug/:slug', (req, res) => {
-    const product = data.products.find(p => p.slug === req.params.slug);
-    if (product) return res.send(product);
-    else res.status(404).send({ message: 'Product not found' });
-});
-app.get('/api/products/:id', (req, res) => {
-    const product = data.products.find(p => p._id === req.params.id);
-    if (product) return res.send(product);
-    else res.status(404).send({ message: 'Product not found' });
-});
 
 const port = process.env.PORT || 5000;
 app.listen(port, ()=>{
