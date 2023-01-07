@@ -15,7 +15,7 @@ export default function ListProductsComponent({array}) {
                   className="mb-3 col-container"
                   key={e.slug}
                 >
-                    <ProductComponent product={e}/>
+                    <ProductComponent product_param={e}/>
                 </Col>
             )
         })}

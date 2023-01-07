@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useReducer } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useContext, useEffect, useReducer } from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
 import "./DetailPage.scss";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -13,6 +13,7 @@ import {Helmet} from 'react-helmet-async';
 import LoadingComponent from '../../components/LoadingComponent';
 import ErrorComponent from '../../components/ErrorComponent';
 import {getErrorMessage} from '../../ulti';
+import { Store } from '../../Store';
 
 const reducer = (state, action) =>{
   switch(action.type){
@@ -28,6 +29,7 @@ const reducer = (state, action) =>{
 }
 
 export default function DetailComponent() {
+  const navigate = useNavigate()
   const params = useParams();
   const {slug} = params;
   const [{loading, error, product}, dispatch] = useReducer(reducer, {
@@ -46,10 +48,25 @@ export default function DetailComponent() {
             dispatch({ type: 'FETCH_FAIL', payload: getErrorMessage(error) });
         }
     })()
-    return () => {
-        
-    };
+    return () => {};
   }, [slug]);
+
+  const {state, dispatch: ctxDispatch} =  useContext(Store);
+  const {cart} = state;
+  const addToCartHandler = async() =>{
+    const existItem = cart.cartItems.find(x => x._id === product._id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const {data} = await axios.get(`http://localhost:5000/api/products/${product._id}`);
+    if(data.countInStock < quantity){
+        window.alert('Sorry. Product is out of stock');
+        return;
+    }
+    ctxDispatch({
+        type: 'CART_ADD_ITEM',
+        payload: { ...product, quantity},
+    })
+    navigate('/cart')
+  };
 
   return (
     loading ? (
@@ -110,7 +127,7 @@ export default function DetailComponent() {
                 {product.countInStock>0&&(
                   <ListGroup.Item>
                     <div className='d-grid'>
-                      <Button variant="primary">
+                      <Button variant="primary" onClick={addToCartHandler}>
                         Add to cart
                       </Button>
                     </div>

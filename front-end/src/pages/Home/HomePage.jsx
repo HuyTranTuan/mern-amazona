@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import "./HomePage.scss"
 import ListProductsComponent from '../../components/ListProductsComponent';
 import axios from 'axios';
@@ -27,7 +27,6 @@ export default function HomeComponent() {
         loading: true,
         error: "",
     })
-    // const [products, setProducts] = useState([]);
     useEffect(() => {
         ;(async () => {
             dispatch({ type: 'FETCH_REQUEST'});
@@ -36,7 +35,6 @@ export default function HomeComponent() {
                 dispatch({ type: 'FETCH_SUCCESS', payload: result.data});
             } catch (error) {
                 dispatch({ type: 'FETCH_FAIL', payload: getErrorMessage(error) });
-                console.log(error);
             }
         })()
         return () => {

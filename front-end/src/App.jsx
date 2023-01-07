@@ -7,6 +7,10 @@ import {
 import {HomePage, ContactPage, DetailPage} from "./pages/index";
 import {Header, Footer} from "./components/index";
 import Container from 'react-bootstrap/Container';
+import CartPage from "./pages/Cart/CartPage";
+import SignInPage from "./pages/SignIn/SignInPage";
+import SignUpPage from "./pages/SignUp/SignUpPage";
+import PolicyPage from "./pages/Policy/PolicyPage";
 
 
 function App() {
@@ -20,7 +24,11 @@ function App() {
               <Route key={e} path={e} element={<HomePage/>} />
             )}
             <Route path="/product/:slug" element={<DetailPage/>}></Route>
+            <Route path="/cart" element={<CartPage/>}></Route>
             <Route path="/contact" element={<ContactPage/>}></Route>
+            <Route path="/signin" element={<SignInPage/>}></Route>
+            <Route path="/signup" element={<SignUpPage/>}></Route>
+            <Route path="/policy" element={<PolicyPage/>}></Route>
           </Routes>
         </Container>
       </main>

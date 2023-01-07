@@ -1,8 +1,8 @@
 :root{
   --text-color: #fff;
   --header-footer-background-color: rgba(33,37,41,1);
-  --main-background-color: #404040;
-  --rating-star-color: #ffc000;
+  --main-background-color: #bdbdbd;
+  --rating-star-color: #dcff4f;
 }
 
 
@@ -16,6 +16,12 @@ body {
 
   a{
     text-decoration: none;
+  }
+
+  .cart-badge{
+    position: relative;
+    top: -10px;
+    left: -10px;
   }
 
   .site-container{
@@ -48,6 +54,19 @@ body {
   .col{
     display: table-cell;
   }
+  .card-product{
+    background-color: #c1c1c1;
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+    position: relative;
+  }
+  .card-product-description{
+    min-height: 100px;
+  }
+  .card-product-rating{
+    position: absolute;
+    bottom: 16px;
+    width: 85%;
+  }
 
   .img-large{
     max-width: 100%;
@@ -61,5 +80,10 @@ body {
     color: var(--text-color);
     text-align: center;
     margin: 1rem auto;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .img-thumbnail{
+    height: 80px;
   }
 }
