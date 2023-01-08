@@ -101,4 +101,20 @@ body {
   .img-thumbnail{
     height: 80px;
   }
+  .small-container{
+    max-width: 600px;
+  }
+
+  .checkout-steps > div{
+    border-bottom: .2rem solid #a0a0a0;
+    color: #a0a0a0;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .checkout-steps > div.active{
+    border-bottom: .2rem solid #f08000;
+    color: #f08000;
+  }
 }

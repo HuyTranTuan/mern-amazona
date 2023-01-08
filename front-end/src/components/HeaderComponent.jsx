@@ -15,6 +15,7 @@ export default function Header() {
   const handelSignOut =() => {
     ctxDispatch({type: 'USER_SIGNOUT'});
     localStorage.removeItem('userInfo');
+    localStorage.removeItem('shippingAddress');
   };
   return (
     <header>
@@ -36,7 +37,7 @@ export default function Header() {
                   )}
                 </Link>
                 {userInfo ? (
-                  <NavDropdown title={userInfo.name} id={"basic-nav-dropdown"}>
+                  <NavDropdown title={userInfo.firstName + ' ' + userInfo.lastName} id={"basic-nav-dropdown"}>
                     <LinkContainer to="/profile">
                       <NavDropdown.Item>User Profile</NavDropdown.Item>
                     </LinkContainer>

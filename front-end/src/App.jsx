@@ -13,6 +13,9 @@ import SignUpPage from "./pages/SignUp/SignUpPage";
 import PolicyPage from "./pages/Policy/PolicyPage";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-phone-number-input/style.css';
+import ShippingPage from "./pages/Shipping/ShippingPage";
+import PaymentPage from "./pages/Payment/PaymentPage";
 
 
 function App() {
@@ -31,6 +34,8 @@ function App() {
             <Route path="/contact" element={<ContactPage/>}></Route>
             <Route path="/signin" element={<SignInPage/>}></Route>
             <Route path="/signup" element={<SignUpPage/>}></Route>
+            <Route path="/shipping" element={<ShippingPage/>}></Route>
+            <Route path="/payment" element={<PaymentPage/>}></Route>
             <Route path="/policy" element={<PolicyPage/>}></Route>
           </Routes>
         </Container>

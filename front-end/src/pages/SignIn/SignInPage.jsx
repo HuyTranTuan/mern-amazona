@@ -70,7 +70,7 @@ const SignInPage = () => {
                     </Button>
                 </div>
                 <div className='mb-3'>
-                    New Customer?{' '}<Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
+                    New Customer?{' '}<Link to={`/signup?redirect=${redirect==="/" ? "/signin" : `/signin?redirect=${redirect}`}`}>Create your account</Link>
                 </div>
             </Form>
         </Container>

@@ -57,15 +57,21 @@ const data = {
     ],
     users: [
         {
-            name: "Huy Chan",
+            firstName: "Huy Tuan",
+            lastName: "Chan",
             email: "huychan@gmail.com",
             password: bcrypt.hashSync('123456'),
+            phoneNumber: '096305801',
+            dateOfBirth: '14-02-2023',
             isAdmin: true,
         },
         {
-            name: "Huy Chan 2",
+            firstName: "Huy 2",
+            lastName: "Chan",
             email: "huychan2@gmail.com",
             password: bcrypt.hashSync('123456'),
+            phoneNumber: '096305802',
+            dateOfBirth: '22-02-2023',
             isAdmin: false,
         },
     ]
