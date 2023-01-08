@@ -16,6 +16,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-phone-number-input/style.css';
 import ShippingPage from "./pages/Shipping/ShippingPage";
 import PaymentPage from "./pages/Payment/PaymentPage";
+import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
+import OrderPage from "./pages/Order/OrderPage";
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
             <Route path="/signup" element={<SignUpPage/>}></Route>
             <Route path="/shipping" element={<ShippingPage/>}></Route>
             <Route path="/payment" element={<PaymentPage/>}></Route>
+            <Route path="/placeorder" element={<PlaceOrder/>}></Route>
+            <Route path="/order/:id" element={<OrderPage/>}></Route>
             <Route path="/policy" element={<PolicyPage/>}></Route>
           </Routes>
         </Container>

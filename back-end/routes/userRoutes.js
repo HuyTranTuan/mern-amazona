@@ -37,7 +37,7 @@ userRouter.post(
             isAdmin: false,
         })
             .then(() => {
-                res.status(200).send({  
+                res.status(201).send({  
                     _id: user._id,
                     firstName: user.firstName,
                     lastName: user.lastName,

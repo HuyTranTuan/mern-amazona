@@ -16,6 +16,7 @@ export default function Header() {
     ctxDispatch({type: 'USER_SIGNOUT'});
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
+    localStorage.removeItem('paymentMethod');
   };
   return (
     <header>
@@ -51,9 +52,6 @@ export default function Header() {
                   <Link className='nav-link' to='/signin'>Sign In</Link>
                 )}
               </Nav>
-              {/* <div className='user-profile'>
-                User Login
-              </div> */}
             </div>
           </Container>
         </Navbar>

@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import "./HomePage.scss"
 import ListProductsComponent from '../../components/ListProductsComponent';
 import axios from 'axios';
-import logger from 'use-reducer-logger';
+// import logger from 'use-reducer-logger';
 import { Helmet } from 'react-helmet-async';
 import LoadingComponent from '../../components/LoadingComponent';
 import ErrorComponent from '../../components/ErrorComponent';
@@ -22,7 +22,7 @@ const reducer = (state, action) =>{
 }
 
 export default function HomeComponent() {
-    const [{loading, error, products}, dispatch] = useReducer(logger(reducer), {
+    const [{loading, error, products}, dispatch] = useReducer(reducer, {
         products: [],
         loading: true,
         error: "",

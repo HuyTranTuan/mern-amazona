@@ -29,7 +29,7 @@ export default function ShippingPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         ctxDispatch({
-            type: "SAVE_SHIPPING ADDRESS",
+            type: "SAVE_SHIPPING_ADDRESS",
             payload: {
                 fullName,
                 address,
@@ -49,7 +49,6 @@ export default function ShippingPage() {
             }
         ));
         navigate('/payment');
-        console.log(state);
     }    
     return (
         <>
