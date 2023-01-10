@@ -1,0 +1,21 @@
+{
+  "name": "fullstack-mern-amazona-basir",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd back-end && npm install && cd ../front-end && npm install && npm run build",
+    "start": "node back-end/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HuyTranTuan/mern-amazona.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HuyTranTuan/mern-amazona/issues"
+  },
+  "homepage": "https://github.com/HuyTranTuan/mern-amazona#readme"
+}
