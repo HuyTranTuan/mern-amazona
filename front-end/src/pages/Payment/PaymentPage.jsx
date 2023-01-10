@@ -12,6 +12,7 @@ const PaymentPage = () => {
     const navigate = useNavigate();
     const {state, dispatch: ctxDispatch} = useContext(Store);
     const {
+        userInfo,
         cart: {
             shippingAddress,
             paymentMethod,
@@ -19,10 +20,13 @@ const PaymentPage = () => {
     } = state;
     const [paymentMethodName, setPaymentMethod] = useState(paymentMethod || 'PayPal');
     useEffect(() => {
-        if(!shippingAddress){
+        if(!userInfo){
+            navigate('/signin?redirect=/payment');
+        }
+        if(!shippingAddress.fullName){
             navigate('/shipping');
         }
-    }, [shippingAddress, navigate]);
+    }, [userInfo, shippingAddress, navigate]);
     const handleSubmit = (e) => {
         e.preventDefault();
         ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });

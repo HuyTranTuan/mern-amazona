@@ -2,7 +2,7 @@ import express from 'express';
 import User from '../models/userModel.js';
 import expressAsyncHandler from 'express-async-handler';
 import bcrypt from 'bcryptjs';
-import { generateToken } from '../utils.js';
+import { generateToken, isAuth } from '../utils.js';
 
 const userRouter = express.Router();
 
@@ -54,5 +54,40 @@ userRouter.post(
             });
     })
 )
+
+userRouter.put(
+    '/profile',
+    isAuth,
+    expressAsyncHandler(async (req, res) => {
+        console.log(req.body);
+        console.log(req.user);
+        const user = await User.findById(req.user._id);
+        if(user){
+            user.firstName = req.body.firstName || user.firstName;
+            user.lastName = req.body.lastName || user.lastName;
+            user.email = req.body.email || user.email;
+            if(req.body.password){
+                user.password = bcrypt.hashSync(req.body.password, 8);
+            }
+            user.phoneNumber = req.body.phoneNumber || user.phoneNumber;
+            user.dateOfBirth = req.body.dateOfBirth || user.dateOfBirth;
+
+            const updateUser = await user.save();
+            res.status(201).send({
+                _id: updateUser._id,
+                firstName: updateUser.firstName,
+                lastName: updateUser.lastName,
+                email: updateUser.email,
+                dateOfBirth: updateUser.dateOfBirth,
+                phoneNumber: updateUser.phoneNumber,
+                isAdmin: updateUser.isAdmin,
+                token: generateToken(updateUser),
+                message: 'User created successfully'
+            })
+        } else {
+            res.status(404).send({message: 'User not found'});
+        }
+    })
+);
 
 export default userRouter;

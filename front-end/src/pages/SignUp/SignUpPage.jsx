@@ -33,17 +33,6 @@ export default function SignUpPage() {
         e.preventDefault();
         try {
             if(reenterPassword===password){
-                // const {data} = await axios.post('/api/users/signup',{
-                //     firstName,
-                    // lastName,
-                    // email,
-                    // password,
-                    // phoneNumber: formatPhoneNumber(phoneNumber),
-                    // dateOfBirth,
-                // })
-                // ctxDispatch({type: 'USER_SIGNUP', payload: data});
-                // navigate(redirect || '/signin');
-
                 if(agree===true){
                     const {data} = await axios.post('/api/users/signup',{
                         firstName,
@@ -121,6 +110,7 @@ export default function SignUpPage() {
                         type="password"
                         placeholder="Password"
                         onChange={(e)=> setPassword(e.target.value)}
+                        autoComplete="on"
                         required
                     />
                 </Form.Group>
@@ -131,6 +121,7 @@ export default function SignUpPage() {
                         type="password"
                         placeholder="Re-enter Password"
                         onChange={(e)=> setReenterPassword(e.target.value)}
+                        autoComplete="on"
                         required
                     />
                 </Form.Group>

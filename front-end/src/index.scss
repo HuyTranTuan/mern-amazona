@@ -29,8 +29,26 @@ body {
   }
   .cart-profile-container{
     display: flex;
+  }
+  @media screen and (max-width: 992px) {
+    .cart-profile-container{
+        justify-content: end;
+    }
+  }
+  .cart-profile-container-responsive{
+    display: flex;
+    width: fit-content;
     justify-content: center;
     gap: 10px;
+  }
+  @media screen and (max-width: 992px) {
+    .cart-profile-container-responsive{
+        display: block;
+    }
+  }
+
+  .navbar-nav .dropdown-menu{
+    position: absolute;
   }
   .user-profile{
     background-color: #dcff4f;

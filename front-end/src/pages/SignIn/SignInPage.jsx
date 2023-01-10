@@ -59,7 +59,7 @@ const SignInPage = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" required onChange={e=> setPassword(e.target.value)}/>
+                    <Form.Control type="password" placeholder="Password" required onChange={e=> setPassword(e.target.value)} autoComplete='on'/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Always remember me!" />
