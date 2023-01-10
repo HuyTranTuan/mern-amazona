@@ -10,6 +10,7 @@ import {toast} from 'react-toastify';
 import { getErrorMessage } from '../../ulti';
 import { useReducer } from 'react';
 import PhoneInput, {formatPhoneNumber } from 'react-phone-number-input';
+import LoadingComponent from '../../components/LoadingComponent';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -151,6 +152,7 @@ export default function ProfilePage() {
 
                 <Form.Group>
                     <Button variant='primary' type='submit'>Update</Button>
+                    {loadingUpdate && <LoadingComponent style={{color: 'red'}}></LoadingComponent>}
                 </Form.Group>
             </Form>
         </div>

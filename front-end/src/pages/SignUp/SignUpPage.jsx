@@ -45,8 +45,9 @@ export default function SignUpPage() {
                         if(response.status === 201){
                             toast.success(response.data.message);
                         }
+                        ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+                        localStorage.setItem('userInfo', JSON.stringify(data));
                         navigate(redirect || '/signin');
-                        return {data: response.data};
                     }).catch(err => {
                         if(err.response.status === 406){
                             toast.error(err.response.data.message);

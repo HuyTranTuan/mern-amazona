@@ -50,7 +50,7 @@ export default function OrderHistory() {
                 }
             })()
         }
-    }, [userInfo]);
+    }, [userInfo, navigate]);
 
     return (
         <div>

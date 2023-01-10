@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useReducer, useState} from 'react';
+import React, {useContext, useEffect, useReducer} from 'react';
 import './PlaceOrder.scss';
 import { Store } from '../../Store';
 import { useNavigate, Link } from 'react-router-dom';

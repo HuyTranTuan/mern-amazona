@@ -47,7 +47,6 @@ export default function OrderPage() {
   });
   const {state} = useContext(Store)
   const {
-    cart,
     userInfo
   } = state;
   const round2 = (num) => Math.round(num*100+Number.EPSILON)/100;
