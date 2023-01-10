@@ -2,7 +2,6 @@ import React, { useEffect, useReducer } from 'react';
 import "./HomePage.scss"
 import ListProductsComponent from '../../components/ListProductsComponent';
 import axios from 'axios';
-// import logger from 'use-reducer-logger';
 import { Helmet } from 'react-helmet-async';
 import LoadingComponent from '../../components/LoadingComponent';
 import ErrorComponent from '../../components/ErrorComponent';
