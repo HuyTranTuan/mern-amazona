@@ -54,7 +54,7 @@
 ![This is an image](./img/place-order.png)
 
 8. Order info
-![This is an image](./img/order-info.png.png)
+![This is an image](./img/order-info.png)
 
 9. PayPal payment<br />
 ![This is an image](./img/paypal-payment.png)
