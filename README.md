@@ -39,10 +39,10 @@
 ![This is an image](./img/cart.png)
 
 3. Get shipping info
-![This is an image](./img/)
+![This is an image](./img/get-shipping-info.png)
 
 4. sign in
-![This is an image](./img/signin.png)
+![This is an image](./img/sign-in.png)
 
 5. Sign up
 ![This is an image](./img/sign-up.png)
@@ -54,7 +54,7 @@
 ![This is an image](./img/place-order.png)
 
 8. Order info
-![This is an image](./img/place-order.png)
+![This is an image](./img/order-info.png.png)
 
 9. PayPal payment<br />
 ![This is an image](./img/paypal-payment.png)
