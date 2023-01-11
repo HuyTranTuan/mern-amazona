@@ -5,10 +5,12 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Badge from 'react-bootstrap/Badge';
 import Container from 'react-bootstrap/Container';
+import Button from "react-bootstrap/Button";
 import { LinkContainer } from 'react-router-bootstrap';
 import { Store } from '../Store';
+import SearchComponent from './SearchComponent';
 
-export default function Header() {
+export default function Header({isSidebarOpen, setIsSidebarOpen}) {
   const {state, dispatch: ctxDispatch} =  useContext(Store);
   const {cart, userInfo} = state;
 
@@ -18,10 +20,14 @@ export default function Header() {
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('paymentMethod');
   };
+
   return (
     <header>
         <Navbar bg='dark' variant='dark' expand='lg'>
           <Container className='header-container'>
+            <Button variant="dark" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+              <i className="fas fa-bars"></i>
+            </Button>
             <LinkContainer to="/">
               <Navbar.Brand>Amazon</Navbar.Brand>
             </LinkContainer>
@@ -30,6 +36,7 @@ export default function Header() {
               
             </div>
             <Navbar.Collapse id='basic-navbar-nav'>
+              <SearchComponent></SearchComponent>
               <Nav className='me-auto w-100 justify-content-end'>
                 <div className='cart-profile-container'>
                   <div className='cart-profile-container-responsive'>

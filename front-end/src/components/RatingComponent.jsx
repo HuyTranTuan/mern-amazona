@@ -1,7 +1,7 @@
 import React from 'react'
 import StarComponent from './StarComponent'
 
-export default function RatingComponent({rating, numReviews, marginBottom}) {
+export default function RatingComponent({rating, numReviews, marginBottom, caption}) {
     return (
         <div style={{display: "flex", justifyContent: "space-between", marginBottom: marginBottom}}>
             <div className='rating'>
@@ -11,7 +11,11 @@ export default function RatingComponent({rating, numReviews, marginBottom}) {
                 <StarComponent rating={rating} full={4} half={3.5}/>
                 <StarComponent rating={rating} full={5} half={4.5}/>
             </div>
-            <span>{numReviews} Reviews</span>
+            {caption ? (
+                <span>{caption}</span>
+            ) : (
+                <span>{numReviews} Reviews</span>
+            )}
         </div>
     )
 }

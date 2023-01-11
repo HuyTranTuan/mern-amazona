@@ -27,7 +27,7 @@ export default function ProductComponent({product_param}) {
     return (
         <Card className='col card-product'>
             <Link to={`/product/${product_param.slug}`}>
-                <img src={product_param.image} className="card-img-top" alt={product_param.name}/>
+                <img src={'/'+product_param.image} className="card-img-top" alt={product_param.name}/>
             </Link>
 
             <Card.Body className='card-product-body'>
