@@ -13,7 +13,7 @@
 - JWT_SECRET_KEY at 3:27:15
 - PAYPAL_CLIENT_ID at 4:49:35
 
-### commands
+### Commands
 ```
 1. npm install
 2. npm start
@@ -24,7 +24,7 @@
 
 ## For frontend:
 
-### commands
+### Commands
 ```
 1. npm i
 2. npm start
@@ -56,7 +56,7 @@
 8. Order info
 ![This is an image](./img/place-order.png)
 
-9. PayPal payment
+9. PayPal payment<br />
 ![This is an image](./img/paypal-payment.png)
 
 10. Search page
